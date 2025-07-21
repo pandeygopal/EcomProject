@@ -1,0 +1,8 @@
+com\buy_anytime\common_lib\dto\order\OrderItemDTO.class
+com\buy_anytime\common_lib\dto\product\ProductMethod.class
+com\buy_anytime\common_lib\entity\AbstractEntity.class
+com\buy_anytime\common_lib\dto\order\OrderEvent.class
+com\buy_anytime\common_lib\dto\product\ProductEvent.class
+com\buy_anytime\common_lib\dto\ApiResponse.class
+com\buy_anytime\common_lib\dto\order\OrderDTO.class
+com\buy_anytime\common_lib\dto\product\ProductDTO.class

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.buy_anytime.common_lib.dto"},{"l":"com.buy_anytime.common_lib.dto.order"},{"l":"com.buy_anytime.common_lib.dto.product"},{"l":"com.buy_anytime.common_lib.entity"}];updateSearchResults();
