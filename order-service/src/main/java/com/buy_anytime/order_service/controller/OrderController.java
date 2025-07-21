@@ -29,7 +29,7 @@ public class OrderController {
     private final AuthenticationAPIClient authenticationAPIClient;
     private final RazorpayService razorpayService;
 
-    @Value("${razorpay.api.secret}")
+    @Value("${razorpay_key}")
     private String razorpayApiSecret;
 
     public OrderController(OrderService orderService, AuthenticationAPIClient authenticationAPIClient, RazorpayService razorpayService) {

@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 @Service
 public class RazorpayService {
 
-    @Value("${razorpay.api.key}")
+    @Value("${razorpay_id}")
     private String apiKey;
 
-    @Value("${razorpay.api.secret}")
+    @Value("${razorpay_key}")
     private String apiSecret;
 
     public String createRazorpayOrder(BigDecimal amount) throws RazorpayException {
