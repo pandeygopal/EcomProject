@@ -9,7 +9,10 @@ The BuyAnytime platform is composed of several independent microservices that wo
 
 New Architecture Diagram
 This diagram provides a detailed view of all services, their core technologies, and how they communicate.
-<img width="3840" height="2368" alt="BuyAnytimeArchitecture" src="https://github.com/user-attachments/assets/05c6798b-efa3-4958-a84b-954f09785f67" />
+
+<img width="3840" height="2368" alt="BuyAnytimeArchitecture" src="https://github.com/user-attachments/assets/19bfe1eb-ad76-470e-a1fb-06065baa6a65" />
+
+
 Microservice Breakdown
 Service
 
