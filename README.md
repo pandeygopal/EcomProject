@@ -1,110 +1,78 @@
-BuyAnytime E-Commerce Platform 🚀
-Introduction 🌟
-Welcome to BuyAnytime, a modern, cloud-native e-commerce backend built on a robust microservices architecture. This platform provides a scalable, resilient, and maintainable foundation for a complete online retail business.
+BuyAnytime E-Commerce Platform
+🔍 Description
+BuyAnytime is a complete, cloud-native e-commerce backend built on a modern microservices architecture. This project provides a scalable, resilient, and maintainable foundation for a full-featured online retail business, showcasing an event-driven ecosystem designed for high performance and independent deployment of its components.
 
-This project is designed to be developer-friendly, leveraging Docker for infrastructure management and Spring Boot for rapid service development. It showcases a complete, event-driven ecosystem featuring an API Gateway, Service Registry, and asynchronous messaging with Kafka, providing a powerful and efficient system for handling e-commerce operations.
+🚀 Features
+User Authentication & Authorization: Secure registration and login using JWT, with role-based access control (Customer, Admin, Employee).
 
-System Architecture 🛠️
-The BuyAnytime platform is composed of several independent microservices that work together to provide a seamless user experience. The architecture is designed for high availability and independent scalability of each component.
+Product Catalog Management: Full CRUD operations for products, categories, and attributes, including image uploads to Cloudinary.
 
-New Architecture Diagram
+High-Performance Caching: Redis is used to cache product and order data, significantly reducing database load and speeding up read operations.
+
+Asynchronous Order Processing: Apache Kafka is used to decouple services. When an order is placed, an OrderEvent is published, allowing payment and email services to react asynchronously.
+
+Secure Payment Integration: A complete, two-step payment flow integrated with the Razorpay payment gateway.
+
+Service Discovery & API Gateway: All services are registered with Eureka for dynamic discovery, with a single entry point managed by Spring Cloud Gateway.
+
+Distributed Tracing: End-to-end request tracing with Zipkin to monitor and debug interactions across the distributed system.
+
+Containerized Environment: The entire infrastructure and all microservices are fully containerized with Docker for consistent and isolated environments.
+
+📸 System Architecture
 This diagram provides a detailed view of all services, their core technologies, and how they communicate.
 
 <img width="3840" height="2368" alt="BuyAnytimeArchitecture" src="https://github.com/user-attachments/assets/19bfe1eb-ad76-470e-a1fb-06065baa6a65" />
 
+🛠️ Tech Stack
+Backend: Java 17, Spring Boot 3, Spring Cloud
 
-Microservice Breakdown
-Service
+Database: MySQL (Persistence), Redis (Caching)
 
-Description
+Messaging: Apache Kafka
 
-Key Technologies
+Authentication: Spring Security, JSON Web Tokens (JWT)
 
-API Gateway
-
-The single, secure entry point for all client requests. Manages routing, security (JWT validation), and rate limiting.
-
-Spring Cloud Gateway
-
-Service Registry
-
-Allows services to dynamically find and communicate with each other without hardcoded URLs.
-
-Netflix Eureka
-
-Identity Service
-
-Handles all user-related operations: registration, login (authentication), and role-based access control (authorization).
-
-Spring Security, JWT, MySQL
-
-Product Service
-
-Manages the entire product catalog, including categories, variants, pricing, and inventory. Uses Redis for caching.
-
-Spring Boot, MySQL, Redis, Cloudinary
-
-Order Service
-
-Orchestrates the checkout process, validates product stock, calculates totals, and initiates payment flows with Razorpay.
-
-Spring Boot, MySQL, Razorpay SDK
-
-Payment Service
-
-Listens for order events from Kafka to create and track payment records. Manages payment statuses.
-
-Spring Boot, MySQL, Kafka Consumer
-
-Email Service
-
-Listens for order events from Kafka to send transactional emails, such as order confirmations.
-
-Spring Boot, Spring Mail, Kafka Consumer
-
-Technology Stack 🔧
-Framework: Spring Boot 3 & Spring Cloud
-
-Communication: REST APIs (OpenFeign) & Asynchronous Messaging (Apache Kafka)
-
-Database: MySQL (for persistent data) & Redis (for caching)
-
-Authentication: Spring Security with JWT (JSON Web Tokens)
+Communication: REST APIs (OpenFeign)
 
 Payments: Razorpay SDK
 
 Image Storage: Cloudinary
 
-Service Discovery: Netflix Eureka
+DevOps: Docker, Docker Compose
 
-API Gateway: Spring Cloud Gateway
+Monitoring: Zipkin
 
-Distributed Tracing: Zipkin
+🧪 Installation
+This guide covers the recommended setup for local development using an IDE and Docker.
 
-Containerization: Docker & Docker Compose
+Prerequisites
+Java 17 JDK
 
-Project Setup Guide 🛠️
-This project can be run in two primary modes: a development mode using your IDE and Docker, or a production-like mode running entirely on Docker.
+Maven 3.8+
 
-🛠️ Prerequisites
-Java 17 JDK: Ensure your IDE and system are configured to use Java 17.
+Docker & Docker Compose
 
-Docker & Docker Compose: Install Docker Desktop
+An IDE (like IntelliJ IDEA)
 
-IntelliJ IDEA: Recommended for running the services.
+A tool for API testing (like Postman)
 
-Postman: For API testing.
+Steps
+Clone the repository:
 
-🚀 Development Setup (IDE + Docker)
-This is the recommended approach for local development and debugging.
+git clone https://github.com/yourusername/BuyAnytime.git
+cd BuyAnytime
 
-1. Start Infrastructure Services:
-First, start all the background services (MySQL, Kafka, Redis, etc.) using Docker. From the project's root directory (BuyAnytime), run:
+Configure API Keys:
+You will need to get API keys for Razorpay, Cloudinary, and an SMTP provider (like a Gmail App Password). Add these to the respective application.properties files in each microservice.
+
+Start Infrastructure Services:
+Run the background services (MySQL, Kafka, Redis, Zipkin) using Docker.
 
 docker-compose up -d
 
-2. Create Databases:
-Connect to the running MySQL container and create the necessary databases.
+Create Databases:
+Connect to the running MySQL container to create the necessary databases.
 
 # Connect to the container
 docker exec -it mysql mysql -u root -p
@@ -115,8 +83,13 @@ CREATE DATABASE order_db;
 CREATE DATABASE payment_db;
 EXIT;
 
-3. Run Microservices in IntelliJ IDEA:
-Open the project in IntelliJ and run each microservice by right-clicking its main application class. Start them in this order:
+Build the Project:
+Compile all modules and install dependencies using Maven from the root directory.
+
+mvn clean install
+
+Run the Microservices:
+Start each microservice from your IDE in the correct order:
 
 service-registry
 
@@ -132,31 +105,23 @@ payment-service
 
 email-service
 
-4. Verify Services:
+📂 Folder Structure
+This project is a multi-module Maven project with a clear separation of concerns.
 
-Open the Eureka Dashboard at http://localhost:8761 to see all services registered.
+.
+├── api-gateway/         # Spring Cloud Gateway
+├── common-lib/          # Shared DTOs and entities
+├── email-service/       # Handles email notifications
+├── identity-service/    # Manages user authentication and authorization
+├── order-service/       # Handles order processing and payment logic
+├── payment-service/     # Manages payment records
+├── product-service/     # Manages the product catalog
+├── service-registry/    # Eureka server for service discovery
+├── docker-compose.yml   # Infrastructure setup
+└── pom.xml              # Root Maven project file
 
-Use the Services tool window in IntelliJ to see all running applications.
+🧑‍💻 Contributors
+Gopal - Project Lead & Developer
 
-🐳 Production Setup (Fully Dockerized)
-To run the entire application (including all Java services) inside Docker, you will need to use the original docker-compose.yml file from the source project, which includes build contexts for each service.
-
-From the project's root directory, execute:
-
-docker-compose up --build -d
-
-API Testing with Postman 🔍
-A complete Postman collection has been created to test all API endpoints. You can import it to get started quickly.
-
-API Gateway URL: http://localhost:9191
-
-Authentication: Most endpoints are secured. First, run the Register and Login requests from the Identity Service folder to get a JWT. Store this token in the jwt_token collection variable to automatically authorize subsequent requests.
-
-Key API Flows:
-Register & Login: POST /api/v1/auth/register and POST /api/v1/auth/token
-
-Create a Product: POST /api/v1/products (Requires ADMIN role)
-
-Create a Razorpay Order: POST /api/v1/order/create-payment-order
-
-Place an Order: POST /api/v1/order (Requires successful payment verification)
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
