@@ -1,68 +1,80 @@
-BuyAnytime E-Commerce Platform
-🔍 Description
-BuyAnytime is a complete, cloud-native e-commerce backend built on a modern microservices architecture. This project provides a scalable, resilient, and maintainable foundation for a full-featured online retail business, showcasing an event-driven ecosystem designed for high performance and independent deployment of its components.
+# 🛍️ BuyAnytime E-Commerce Platform
 
-🚀 Features
-User Authentication & Authorization: Secure registration and login using JWT, with role-based access control (Customer, Admin, Employee).
+## 🔍 Description
+**BuyAnytime** is a complete, cloud-native e-commerce backend built using a modern microservices architecture. It provides a scalable, resilient, and maintainable foundation for a full-featured online retail platform. The system demonstrates an event-driven ecosystem designed for high performance and independent deployment of its components.
 
-Product Catalog Management: Full CRUD operations for products, categories, and attributes, including image uploads to Cloudinary.
+---
 
-High-Performance Caching: Redis is used to cache product and order data, significantly reducing database load and speeding up read operations.
+## 🚀 Features
 
-Asynchronous Order Processing: Apache Kafka is used to decouple services. When an order is placed, an OrderEvent is published, allowing payment and email services to react asynchronously.
+- 🔐 **User Authentication & Authorization**  
+  Secure registration and login using JWT with role-based access control (Customer, Admin, Employee).
 
-Secure Payment Integration: A complete, two-step payment flow integrated with the Razorpay payment gateway.
+- 📦 **Product Catalog Management**  
+  Full CRUD operations for products, categories, and attributes, including image uploads via Cloudinary.
 
-Service Discovery & API Gateway: All services are registered with Eureka for dynamic discovery, with a single entry point managed by Spring Cloud Gateway.
+- ⚡ **High-Performance Caching**  
+  Redis used for caching product and order data to reduce DB load and improve speed.
 
-Distributed Tracing: End-to-end request tracing with Zipkin to monitor and debug interactions across the distributed system.
+- 🔁 **Asynchronous Order Processing**  
+  Apache Kafka decouples services; an `OrderEvent` is published, and payment/email services react asynchronously.
 
-Containerized Environment: The entire infrastructure and all microservices are fully containerized with Docker for consistent and isolated environments.
+- 💳 **Secure Payment Integration**  
+  End-to-end payment flow using Razorpay.
 
-📸 System Architecture
-This diagram provides a detailed view of all services, their core technologies, and how they communicate.
+- 🌐 **Service Discovery & API Gateway**  
+  All services register with Eureka and are routed via Spring Cloud Gateway.
 
-<img width="3840" height="2368" alt="BuyAnytimeArchitecture" src="https://github.com/user-attachments/assets/19bfe1eb-ad76-470e-a1fb-06065baa6a65" />
+- 🔎 **Distributed Tracing**  
+  Zipkin is integrated for full request tracing across microservices.
 
-🛠️ Tech Stack
-Backend: Java 17, Spring Boot 3, Spring Cloud
+- 🐳 **Containerized Environment**  
+  Entire infrastructure and services are containerized with Docker for consistent deployment.
 
-Database: MySQL (Persistence), Redis (Caching)
+---
 
-Messaging: Apache Kafka
+## 🖥️ System Architecture
 
-Authentication: Spring Security, JSON Web Tokens (JWT)
+> 📷
+> <img width="3840" height="2368" alt="BuyAnytimeArchitecture" src="https://github.com/user-attachments/assets/19bfe1eb-ad76-470e-a1fb-06065baa6a65" />
+Provides a detailed view of all microservices, their core technologies, and interactions.
 
-Communication: REST APIs (OpenFeign)
+---
 
-Payments: Razorpay SDK
+## 🛠️ Tech Stack
 
-Image Storage: Cloudinary
+| Layer          | Technologies                            |
+|----------------|------------------------------------------|
+| **Backend**    | Java 17, Spring Boot 3, Spring Cloud     |
+| **Database**   | MySQL (Persistence), Redis (Caching)     |
+| **Messaging**  | Apache Kafka                             |
+| **Auth**       | Spring Security, JWT                     |
+| **API Comm**   | REST APIs (OpenFeign)                    |
+| **Payments**   | Razorpay SDK                             |
+| **Media**      | Cloudinary                               |
+| **DevOps**     | Docker, Docker Compose                   |
+| **Monitoring** | Zipkin                                   |
 
-DevOps: Docker, Docker Compose
+---
 
-Monitoring: Zipkin
+## 🧪 Installation
 
-🧪 Installation
-This guide covers the recommended setup for local development using an IDE and Docker.
+### 🔧 Prerequisites
+- Java 17 JDK
+- Maven 3.8+
+- Docker & Docker Compose
+- IntelliJ IDEA (or similar IDE)
+- Postman (for API testing)
 
-Prerequisites
-Java 17 JDK
+---
 
-Maven 3.8+
+### 🚀 Setup Steps
 
-Docker & Docker Compose
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/pandeygopal/EcomProject.git
+   cd EcomProject
 
-An IDE (like IntelliJ IDEA)
-
-A tool for API testing (like Postman)
-
-Steps
-Clone the repository:
-
-git clone https://github.com/pandeygopal/EcomProject.git
-
-cd EcomProject
 
 Configure API Keys:
 You will need to get API keys for Razorpay, Cloudinary, and an SMTP provider (like a Gmail App Password). Add these to the respective application.properties files in each microservice.
