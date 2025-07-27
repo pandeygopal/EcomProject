@@ -106,9 +106,11 @@ payment-service
 
 email-service
 
-📂 Folder Structure
+## 📂 Folder Structure
+
 This project is a multi-module Maven project with a clear separation of concerns, organized as follows:
 
+```bash
 BuyAnytime/
 ├── 📂 api-gateway/         # Spring Cloud Gateway for routing and security
 ├── 📂 common-lib/          # Shared DTOs, entities, and utility classes
