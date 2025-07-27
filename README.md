@@ -60,7 +60,7 @@ A tool for API testing (like Postman)
 Steps
 Clone the repository:
 
-git clone https://github.com/yourusername/BuyAnytime.git
+git clone https://github.com/pandeygopal/EcomProject.git
 cd BuyAnytime
 
 Configure API Keys:
