@@ -111,14 +111,23 @@ This project is a multi-module Maven project with a clear separation of concerns
 
 .
 ├── api-gateway/         # Spring Cloud Gateway
+
 ├── common-lib/          # Shared DTOs and entities
+
 ├── email-service/       # Handles email notifications
+
 ├── identity-service/    # Manages user authentication and authorization
+
 ├── order-service/       # Handles order processing and payment logic
+
 ├── payment-service/     # Manages payment records
+
 ├── product-service/     # Manages the product catalog
+
 ├── service-registry/    # Eureka server for service discovery
+
 ├── docker-compose.yml   # Infrastructure setup
+
 └── pom.xml              # Root Maven project file
 
 🧑‍💻 Contributors
