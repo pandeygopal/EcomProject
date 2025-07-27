@@ -107,28 +107,19 @@ payment-service
 email-service
 
 📂 Folder Structure
-This project is a multi-module Maven project with a clear separation of concerns.
+This project is a multi-module Maven project with a clear separation of concerns, organized as follows:
 
-.
-├── api-gateway/         # Spring Cloud Gateway
-
-├── common-lib/          # Shared DTOs and entities
-
-├── email-service/       # Handles email notifications
-
-├── identity-service/    # Manages user authentication and authorization
-
-├── order-service/       # Handles order processing and payment logic
-
-├── payment-service/     # Manages payment records
-
-├── product-service/     # Manages the product catalog
-
-├── service-registry/    # Eureka server for service discovery
-
-├── docker-compose.yml   # Infrastructure setup
-
-└── pom.xml              # Root Maven project file
+BuyAnytime/
+├── 📂 api-gateway/         # Spring Cloud Gateway for routing and security
+├── 📂 common-lib/          # Shared DTOs, entities, and utility classes
+├── 📂 email-service/       # Handles asynchronous email notifications
+├── 📂 identity-service/    # Manages user authentication and authorization
+├── 📂 order-service/       # Handles order processing and payment logic
+├── 📂 payment-service/     # Manages payment records from Kafka events
+├── 📂 product-service/     # Manages the product catalog and inventory
+├── 📂 service-registry/    # Eureka server for service discovery
+├── 🐳 docker-compose.yml   # Defines and runs all infrastructure services
+└── 📄 pom.xml              # Root Maven project file that manages all modules
 
 🧑‍💻 Contributors
 Gopal - Project Lead & Developer
