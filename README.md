@@ -61,7 +61,8 @@ Steps
 Clone the repository:
 
 git clone https://github.com/pandeygopal/EcomProject.git
-cd BuyAnytime
+
+cd EcomProject
 
 Configure API Keys:
 You will need to get API keys for Razorpay, Cloudinary, and an SMTP provider (like a Gmail App Password). Add these to the respective application.properties files in each microservice.
